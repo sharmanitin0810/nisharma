@@ -1,0 +1,23 @@
+---
+- name: sample book
+  hosts: ansible_client
+  remote_user: root
+  become: true
+  tasks:
+    - set_fact:
+         ansible_facts:
+            pkg_mgr: yum
+
+    - name: install httpd
+      yum:
+          name: httpd
+          state: latest
+    - name: run httpd
+      service:
+              name: httpd
+              state: started
+    - name: create content
+      copy:
+           content: "### Welcome to Hughes Sytique Corporation ###"
+           dest: /var/www/html/index.html
+
