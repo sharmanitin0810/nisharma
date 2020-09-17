@@ -1,0 +1,4 @@
+#IP_ADDRESS #COMPONENT_NAME
+
+10.10.135.1 BXP ##this is for example pls change it
+
