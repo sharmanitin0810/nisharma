@@ -26,7 +26,9 @@ import asn1tools
 import subprocess
 from subprocess import check_output
 import xlsxwriter
+from configparser import ConfigParser
 
+inputParams = []
 
 def extractTime(LineEntry,tzd):
     datePattern1 = re.compile("\w{3} \d{2}-\w{3}-\d{4} \d{2}:\d{2}:\d{2}")
@@ -935,9 +937,10 @@ def getStartEndTimeFromUTLog(dirpath,ut_index):
     return startTime,endTime
 
 def fetchAlarm(alarmHistoryFile,alarmStartTimeStr,alarmEndTimeStr):
-    myclient = getSSHClient("10.52.4.4", "root", "ONEWEB123")
+    global inputParams
+    myclient = getSSHClient(str(inputParams[1]), str(inputParams[2]), str(inputParams[3]))
 
-    command = "curl -i --insecure 'https://10.32.28.21/gnems/login' -XPOST -H 'Accept: application/json, text/plain, */*' -H 'Content-Type: application/json;charset=utf-8' --data-binary '{\"username\":\"hughesemsadmin\",\"password\":\"Drinksunnyalike5}\",\"selDbName\":\"oneweb_config_01\"}'"
+    command = "curl -i --insecure 'https://'"+str(inputParams[4])+"'/gnems/login' -XPOST -H 'Accept: application/json, text/plain, */*' -H 'Content-Type: application/json;charset=utf-8' --data-binary '{\"username\":\"hughesemsadmin\",\"password\":\"Drinksunnyalike5}\",\"selDbName\":\"oneweb_config_01\"}'"
     mystdin,mystdout,mystderr = myclient.exec_command(command,get_pty=True)
     output = mystdout.read().decode('ascii')
     start = output.find("{", 0, len(output)-1)
@@ -946,7 +949,7 @@ def fetchAlarm(alarmHistoryFile,alarmStartTimeStr,alarmEndTimeStr):
     token = json_info['data']['token']
     
     print(f"alarmStartTime:{alarmStartTimeStr} endTime:{alarmEndTimeStr}\n")
-    command = "curl -i --insecure 'https://10.32.28.21/gnems/api/alarmhistory/filter' -XPOST -H 'Content-Type: application/json' -H 'Authorization: Bearer " + token + "' -H 'selDbName: oneweb_config_01' --data-binary '{\"startDate\":\"" + alarmStartTimeStr + "\",\"endDate\":\"" + alarmEndTimeStr + "\",\"severityList\":[],\"alarmIdList\":[],\"reportingEntityList\":[],\"faultyEntityList\":[],\"entityIdList\":[],\"clearedByList\":[],\"page\":0,\"size\":100}'"
+    command = "curl -i --insecure 'https://'"+str(inputParams[4])+"'/gnems/api/alarmhistory/filter' -XPOST -H 'Content-Type: application/json' -H 'Authorization: Bearer " + token + "' -H 'selDbName: oneweb_config_01' --data-binary '{\"startDate\":\"" + alarmStartTimeStr + "\",\"endDate\":\"" + alarmEndTimeStr + "\",\"severityList\":[],\"alarmIdList\":[],\"reportingEntityList\":[],\"faultyEntityList\":[],\"entityIdList\":[],\"clearedByList\":[],\"page\":0,\"size\":100}'"
     mystdin,mystdout,mystderr = myclient.exec_command(command,get_pty=True)
     
     output = mystdout.read().decode('ascii')
@@ -955,7 +958,7 @@ def fetchAlarm(alarmHistoryFile,alarmStartTimeStr,alarmEndTimeStr):
     data = json.loads(output)
     size = data['data']['totalAlarms']
     if ( size > 100):
-        command = "curl -i --insecure 'https://10.32.28.21/gnems/api/alarmhistory/filter' -XPOST -H 'Content-Type: application/json' -H 'Authorization: Bearer " + token + "' -H 'selDbName: oneweb_config_01' --data-binary '{\"startDate\":\"" + alarmStartTimeStr + "\",\"endDate\":\"" + alarmEndTimeStr + "\",\"severityList\":[],\"alarmIdList\":[],\"reportingEntityList\":[],\"faultyEntityList\":[],\"entityIdList\":[],\"clearedByList\":[],\"page\":0,\"size\":"+str(size)+"}'"
+        command = "curl -i --insecure 'https://'"+str(inputParams[4])+"'/gnems/api/alarmhistory/filter' -XPOST -H 'Content-Type: application/json' -H 'Authorization: Bearer " + token + "' -H 'selDbName: oneweb_config_01' --data-binary '{\"startDate\":\"" + alarmStartTimeStr + "\",\"endDate\":\"" + alarmEndTimeStr + "\",\"severityList\":[],\"alarmIdList\":[],\"reportingEntityList\":[],\"faultyEntityList\":[],\"entityIdList\":[],\"clearedByList\":[],\"page\":0,\"size\":"+str(size)+"}'"
         mystdin,mystdout,mystderr = myclient.exec_command(command,get_pty=True)
         output = mystdout.read().decode('ascii')
         start = output.find("{", 0, len(output)-1)
@@ -972,7 +975,7 @@ def filterModemLogs(ut_list,ut_index,startTime,endTime):
     for dirpath, dirs, files in os.walk('.'):
 #        for file in fnmatch.filter(files, ut_list[ut_index][1]+"_OAT_PTU_"+ut_list[ut_index][0]+"*.txt"):
 #        for file in fnmatch.filter(files, "OTA_Palermo_Logs_UT_"+ut_list[ut_index][0]+"*.txt"):
-        for file in fnmatch.filter(files, ut_list[ut_index][1]+"_PTU_"+ut_list[ut_index][0]+"*.txt"):
+        for file in fnmatch.filter(files, str(ut_list[ut_index][1])+"_"+ut_list[ut_index][0]+"*.txt"):
             print(file)
             dateMatch = aDatePattern.search(file)
             if (dateMatch !=None):
@@ -1029,7 +1032,31 @@ def fetchSatSapMap(sortedAlarms):
             pass
     return satSapMap
 
+
+def parseBasicConfig():
+
+	global inputParams	
+	basic_config = ConfigParser()
+	print (basic_config.read('basicConfig.cfg'))
+	print ("Config File Sections : ", basic_config.sections())
+
+	inputParams.append(basic_config.get('BASIC_CONFIG','SITE_NAME'))
+	inputParams.append(basic_config.get('BASIC_CONFIG','FIRST_HOP_IP'))
+	inputParams.append(basic_config.get('BASIC_CONFIG','F_HOP_USER'))
+	inputParams.append(basic_config.get('BASIC_CONFIG','F_HOP_PASS'))
+	inputParams.append(basic_config.get('BASIC_CONFIG','GN_EMS_IP'))
+	inputParams.append(basic_config.get('BASIC_CONFIG','NAS_SERVER_IP'))
+	inputParams.append(basic_config.get('BASIC_CONFIG','INPUT_DATA_PATH'))
+	inputParams.append(basic_config.get('UT_CONFIG','TOTAL_NUM_UT'))
+	inputParams.append(basic_config.get('UT_CONFIG','UT_ID_01'))
+	
+	print(inputParams)
+
 if __name__ == "__main__":
+
+
+    parseBasicConfig()
+    time.sleep(1)
 
     if (len(sys.argv)-1)<1:
         print("The script is called with zero arguments\n format: {} <YYYY-MM-DD>".format(sys.argv[0]))
@@ -1041,7 +1068,7 @@ if __name__ == "__main__":
         check_output("net use t: /delete")
     except:
         pass
-    check_output("net use t: \\\\10.52.4.68\\gn_126\\HSC_SIV"+date)
+    check_output("net use t: "+'\\\\'+str(inputParams[5])+'\\'+str(inputParams[6])+'\\'+date)
     os.chdir("t:")
 
     sortedAlarms = []
@@ -1069,7 +1096,7 @@ if __name__ == "__main__":
     worksheet = workbook.add_worksheet()
     row=0
     firstPingFile = True    
-    ut_list = {"1":("10","PMO"),"2":("20","PMO"),"3":("30","PMO"),"4":("40","PMO")}
+    ut_list = {"1":(str(inputParams[7]),str(inputParam[0])),"2":("20","PMO"),"3":("30","PMO"),"4":("40","PMO")}
     satSapMap =  {}
     for ut_index in ut_list:                
         prev_dirpath= ""
