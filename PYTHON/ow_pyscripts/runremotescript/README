@@ -1,0 +1,389 @@
+Test Automation Framework for OneWeb Satellite Communication System
+-------------------------------------------------------------------
+This is an application for automated testing of User Terminal to Ground Network communication over OneWeb Satellite Constellation.
+
+The script connects to a set of user terminals and a test server (behind PGW) identified in the config files.
+The computer from which this test is executed and the UT/test servers do not have to be on the same private network.
+The script makes use of  dynamic port forwarding option of ssh to be able to reach the UT/test servers via Jump/Proxy Servers as shown below.
+
+                                                  ----------------
+                                                  | Test Computer |
+                                                  -----------------
+                                                 /                \  
+                                             /-----\               /-----\        
+                                        /---/       \---\     /---/       \---\
+                                        |  Network x    |    |     Network y  |
+                                        \---\       /---/     \---\       /---/
+                                             \-----/               \-----/ 
+                                                /                       \
+                            --------------------                     ---------------------- 
+                            | Proxy Server for |                     | Proxy Server for   |
+                            | UT Access        |                     | Test Server Access |
+                            --------------------                     ----------------------
+                                     |                                                   |                  
+                                  /-----\                                             /-----\      
+                             /---/       \---\                                   /---/       \---\ 
+                |---------- | VPN Network x  |                                  | VPN Network x  |
+                |            \---\       /---/                                   \---\       /---/ 
+                |                 \-----/                                             \-----/      
+                |             /      |      \                                             \
+             ---|----        /       |       \                                             \
+             |  CNX |--|----/----|---|------| \                                             \
+             -------   |   /     |   |      |  \                                             \
+                       |  /      |   |      |   \                                             \
+                     --|-/--    -|---|-     |----\-          ---------       -------     --------------
+                     | UT1 |    | UT2 |     | UTn |          |  GN   | ------|  CN  |----| Test Server |
+                     -------    -------     -------          ---------       -------     --------------
+                              \         \          |        /
+                               \          \        |      /   
+                                \ ==//==    \     |   /
+                                   Sat m      ==//==
+                                                Sat n  
+                                                       
+Once connected to the UT, it keeps checking whether the UT is attached to the network (by checking the attachment of IP addresses to rmnet_data0 and rmnet_data1 interfaces at the SSMs).
+Once the UT is attached, it sets up data transfer sessions between the test server and the UT. The list, type and sequence of tests for a given UT are specified through a json configuration file.
+The data transfer tests are run simultaneously or in sequence as specified for each UT in the configuration file. For e.g., one can run multiple simultaneous data transfer sessions such as  
+ping from server to UT, ping from UT to server, downlink iperf session from Server to UT, up link iperf session to the test server for each UT. Again these can be run simultaneously on various bearers/APNs.
+The script uses multi-threading to achieve parallel execution.
+If a given data transfer test doesn't have a timeout, the thread continues (for e.g., the receive thread of a iperf session or a ping without any time window). 
+The user can press 'Ctrl^C' to end the test (which internally stops all the threads of all tests and closes the files).       
+The results (output of ping/iperf commands) of each data session test is logged in its own log file, so that each can be analyzed independently.
+Apart from logging the traces in the log files, the combined traces of all the threads are also printed on the console, just to give indication of running status of the tests.
+
+Configuration Files
+-------------------
+There are three configuration files.
+1. Common Configuration File (common_config.txt): This file contains common config parameters in ascii with one line per parameters in 'attribute=value' format as follows;
+
+GW_SSH_PROXY_SERVER_IP = '10.52.4.4'
+GW_SSH_PROXY_SERVER_LOGIN = 'root'
+GW_SSH_SERVER_PROXY_PASSWORD = 'ONEWEB123'
+UT_SSH_PROXY_SERVER_IP = '10.52.4.88'
+UT_SSH_PROXY_SERVER_LOGIN = 'oneweb'
+UT_SSH_SERVER_PROXY_PASSWORD = 'oneweb123'
+TEST_SERVER_IP = '10.82.20.43'
+TEST_SERVER_LOGIN = 'installer'
+TEST_SERVER_PASSWORD = 'yt_xk39b'
+UT_CNX_IP = '10.101.1.5'
+UT_CNX_LOGIN = 'svchns'
+UT_CNX_PASSWORD = 'Friendsfamily93*'
+TEST_SERVER_IPERF_COMMAND_FOR_CNX = 'sudo iperf3'
+TEST_SERVER_IPERF_COMMAND_FOR_SSM = 'sudo iperf'
+CNX_IPERF_COMMAND = 'iperf3'
+SSM_IPERF_COMMAND = 'iperf'
+
+2. UT List (UTlist.csv):  A csv file with the list of UTs on which to perform the tests,one row for each UT identified by the UT Id) with the following columns
+UT Id: Identifier for UT(For e.g., 1, 2, 3, 4: Used as tag in the log files)
+UT IP Address: IP used for connecting to the UT from the test laptop (e.g., 10.101.1.10, 10.101.1.20)
+Username: User login account to be used by the ssh proxy to login to the UT, for e.g, root
+Password: User login password to be used by the ssh proxy to login to the UT, for e.g., use4Tst!
+Test Server WAN IP Address: IP address of the Test Server on the WAN APN to be used by the UT in its data transfer test. 
+Test Server Management IP Address: IP address of the test Server on the Management APN to be used by the UT in its data tranfer test.
+IPerf Base Port: Base Port# used for IPERF Tests. (Actual port for the test will be : Base Port# + offset defined in the actual test case parameters for the test in the Test Suite.json)
+Test SuiteName: Name of the Test Suite to run (The list of test cases in the test suite will be defined in the corresponding TestSuite.json file)
+System : Test flag with the two values of 'CNX' or 'SSM' to indicate whether the test for this UT should be run from CNX or from the SSM. This is applicable for WAN APN traffic only. 
+         If the flag is set to CNX, the script automatically adds the ip table rules in the corresponding SSM to route all relevant traffic to CNX at the beginning of the test and removes those rules at the end of the test.
+         
+An example file would be:         
+UT Id,UT IP Address,Username,Password,Test Server WAN IP Address,Test Server Management IP Address,IPerf Base Port,Test SuiteName,System
+1,10.101.1.10,root,use4Tst!,10.82.21.229, 10.82.21.213,16180,TS_UT_SINGLE_WAN_PING,CNX
+2,10.101.1.20,root,use4Tst!,10.82.21.229, 10.82.21.213,17180,TS_UT_SINGLE_WAN_PING,SSM
+4,10.101.1.40,root,use4Tst!,10.82.21.229, 10.82.21.213,19180,TS_SIMUL_PING_TCP_IPERF,SSM
+
+3. Test Case Configuration File (test_suites.json) : A jsonfile with a dictionary of test suites (one record for each test suite, identified by the Test suite name) with the following schema:
+
+	"type" : "array",
+	"items": {
+		"type":"object",
+		"properties": {
+			"testSuiteName": {
+				"title": " Name of the Test Suite",
+				"type": "string"
+			},
+			"testCases": {
+				"description": "List of tests cases under this test suite",
+				"type": "array",
+				"items": {
+					"type" : "object",
+					"properties": {
+						"testCaseType" : {
+							"title": "Test Case Type",
+							"enum": ["PING_TO_SERVER_WAN", "PING_TO_INTERNET","PING_TO_SERVER_MGMT","PING_FROM_SERVER_WAN","PING_FROM_SERVER_MGMT","DOWNLINK_IPERF_WAN","UPLINK_IPERF_WAN","DOWNLINK_IPERF_MGMT","UPLINK_IPERF_MGMT"]
+						},
+						"testStartOption" : {
+							"title" : "Test Start Control option to start the test parallel to previous test or after the completion of the previous test",
+							"enum": ["StartWithPrevious","StartAfterPrevious""]
+						},
+						"OffsetFromBasePort" : {
+							"title" : "IPERF Port Offset from Base Port",
+							"description" : "This is an optional field only present when the testCaseType is IPERF. It provides the offset from the Base Port for a given UT, to be used in IPERF tests"
+							"type" : "integer"
+						}
+						"testCaseParameters" : {
+							"title" : "Test Parameters"
+							"type": "string"
+						}
+						"testCaseParameters_CNX" : {
+							"title" : "Test Parameters"
+							"type": "string"
+						}
+					}
+				}
+			}
+		}
+	}
+}
+     
+The 'testCaseParameters' are specific to the test such as timeout, throughput etc. These parameters will be appended to the test command of ping or iperf. 
+Since the parameter formats are different if it is run from CNX (windows) or SSM (Linux), both formats can be specified in the file through two fields 'testCaseParameters' and 'testCaseParameters_CNX'. 
+Depending on whether the test is run from SSM or CNX, the script picks up the coresponding format.
+
+An example file is,
+[
+  {
+	"testSuiteName": "TS_SIMUL_PING_UDP_IPERF",
+	"testCases" : [{
+		"testCaseType" : "PING_TO_SERVER_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780 -Q 0xa0",
+		"testCaseParameters_CNX" : "-l 1000 -v 160 -t"
+	},
+	{
+		"testCaseType" : "PING_TO_INTERNET",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780 -Q 0xa0 8.8.8.8",
+		"testCaseParameters_CNX" : "-l 1000 -v 160 -t 8.8.8.8"
+	},
+	{
+		"testCaseType" : "PING_TO_SERVER_MGMT",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780"
+	},
+	{
+		"testCaseType" : "PING_FROM_SERVER_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780"
+	},
+	{
+		"testCaseType" : "PING_FROM_SERVER_MGMT",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780"
+	},
+	{
+		"testCaseType" : "DOWNLINK_IPERF_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"offsetFromBasePort" : 0,
+		"testCaseParameters" : "-u -b 450K -i 2 -t 780 -l 1200 ",
+		"testCaseParameters_CNX" : "-u -b 450K -i 2 -t 780 -l 1200 -S 0xa0 "
+	},
+	{
+		"testCaseType" : "UPLINK_IPERF_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"offsetFromBasePort" : 1,
+		"testCaseParameters" : "-u -b 450K -i 2 -t 780 -l 1200 ",
+		"testCaseParameters_CNX" : "-u -b 450K -i 2 -t 780 -l 1200 -S 0xa0 "
+	},
+	{
+		"testCaseType" : "DOWNLINK_IPERF_MGMT",
+		"testStartOption" : "StartAfterPrevious",
+		"offsetFromBasePort" : 2,
+		"testCaseParameters" : "-u -b 450K -i 2 -t 300 -l 1200 "
+	},
+	{
+		"testCaseType" : "UPLINK_IPERF_MGMT",
+		"testStartOption" : "StartWithPrevious",
+		"offsetFromBasePort" : 3,
+		"testCaseParameters" : "-u -b 450K -i 2 -t 300 -l 1200 "
+	}
+	]
+  },
+  {
+	"testSuiteName": "TS_SIMUL_PING_TCP_IPERF",
+	"testCases" : [{
+		"testCaseType" : "PING_TO_SERVER_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780 -Q 0xa0",
+		"testCaseParameters_CNX" : "-l 1000 -v 160 -t"
+	},
+	{
+		"testCaseType" : "PING_TO_INTERNET",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780 -Q 0xa0 8.8.8.8",
+		"testCaseParameters_CNX" : "-l 1000 -v 160 -t 8.8.8.8"
+	},
+	{
+		"testCaseType" : "PING_TO_SERVER_MGMT",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780"
+	},
+	{
+		"testCaseType" : "PING_FROM_SERVER_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780"
+	},
+	{
+		"testCaseType" : "PING_FROM_SERVER_MGMT",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780"
+	},
+	{
+		"testCaseType" : "DOWNLINK_IPERF_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"offsetFromBasePort" : 0,
+		"testCaseParameters" : " -i 2 -t 780 -w 4M ",
+		"testCaseParameters_CNX" : "-i 2 -t 780 -w 4M -S 0xa0 "
+	},
+	{
+		"testCaseType" : "UPLINK_IPERF_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"offsetFromBasePort" : 1,
+		"testCaseParameters" : " -i 2 -t 780 -w 4M ",
+		"testCaseParameters_CNX" : "-i 2 -t 780 -w 4M -S 0xa0 "
+	},
+	{
+		"testCaseType" : "DOWNLINK_IPERF_MGMT",
+		"testStartOption" : "StartWithPrevious",
+		"offsetFromBasePort" : 2,
+		"testCaseParameters" : " -i 2 -t 780 -w 4M "
+	},
+	{
+		"testCaseType" : "UPLINK_IPERF_MGMT",
+		"testStartOption" : "StartWithPrevious",
+		"offsetFromBasePort" : 3,
+		"testCaseParameters" : " -i 2 -t 780 -w 4M "
+	}
+	]
+  },
+  {
+	"testSuiteName": "TS_SINGLE_TCP_IPERF",
+	"testCases" : [{
+		"testCaseType" : "PING_TO_SERVER_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780 -Q 0xa0",
+		"testCaseParameters_CNX" : "-l 1000 -v 160 -t"
+	},
+	{
+		"testCaseType" : "DOWNLINK_IPERF_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"offsetFromBasePort" : 0,
+		"testCaseParameters" : " -i 2 -t 780 -w 4M ",
+		"testCaseParameters_CNX" : "-i 2 -t 780 -w 4M -S 0xa0 "
+	},
+	{
+		"testCaseType" : "UPLINK_IPERF_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"offsetFromBasePort" : 1,
+		"testCaseParameters" : " -i 2 -t 780 -w 4M ",
+		"testCaseParameters_CNX" : "-i 2 -t 780 -w 4M -S 0xa0 "
+	}	
+	]
+  },  
+  {
+	"testSuiteName": "TS_UT_SINGLE_WAN_PING",
+	"testCases" : [{
+		"testCaseType" : "PING_FROM_SERVER_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780" 
+	},
+	{
+		"testCaseType" : "PING_TO_SERVER_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780 -Q 0xa0",
+		"testCaseParameters_CNX" : "-l 1000 -v 160 -t"
+	},
+	{
+		"testCaseType" : "DOWNLINK_IPERF_MGMT",
+		"testStartOption" : "StartWithPrevious",
+		"offsetFromBasePort" : 2,
+		"testCaseParameters" : " -i 2 -t 780 -w 4M "
+	}    
+	]
+  },    
+  {
+	"testSuiteName": "TS_SIMUL_PING_TCP_IPERF_SSM",
+	"testCases" : [{
+		"testCaseType" : "PING_TO_SERVER_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780 -Q 0xa0",
+		"testCaseParameters_CNX" : "-l 100 -v 160 -t"
+	},
+	{
+		"testCaseType" : "PING_TO_SERVER_MGMT",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 100 -w 780"
+	},
+	{
+		"testCaseType" : "PING_FROM_SERVER_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 100 -w 780"
+	},
+	{
+		"testCaseType" : "PING_FROM_SERVER_MGMT",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 100 -w 780"
+	},
+	{
+		"testCaseType" : "DOWNLINK_IPERF_MGMT",
+		"testStartOption" : "StartWithPrevious",
+		"offsetFromBasePort" : 2,
+		"testCaseParameters" : " -i 2 -t 780 -w 4M "
+	}
+	]
+  },
+  {
+	"testSuiteName": "TS_UT_MULT_WAN_PING",
+	"testCases" : [{
+		"testCaseType" : "PING_TO_SERVER_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780 -Q 0xa0",
+		"testCaseParameters_CNX" : "-l 1000 -v 160 -t"		
+	},
+	{
+		"testCaseType" : "PING_TO_INTERNET",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780 -Q 0xa0 8.8.8.8",
+		"testCaseParameters_CNX" : "-l 1000 -v 160 -t 8.8.8.8"
+	},
+	{
+		"testCaseType" : "PING_TO_SERVER_MGMT",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780"
+	},
+	{
+		"testCaseType" : "PING_FROM_SERVER_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780" 
+	},
+	{
+		"testCaseType" : "PING_FROM_SERVER_MGMT",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780"
+   	}]	
+  }  
+]
+
+
+
+Installation Instructions:
+-------------------------
+
+The script is written in python 3.x and makes use of quite of lot of 3.x based libraries. Since python 2.x is not compatible with 3.x, the script should be run from python 3.x environment.
+The script has been tested under the Windows environment. It may need some tweeks if has to be run under Linux environment.
+The script makes use of following python libraries and hence these have to be installed.
+> paramiko
+> ans1tools
+> requests
+> sshtunnel
+> urllib3
+
+If not already installed, each of these libraries can be installed by 
+> python -m pip install <above package name>
+ 
+Run Instructions:
+----------------
+1. Ensure that the three configuration files 'common_config.txt', 'UTlist.csv' and 'test_suites.json' are present in the directory of python scripts (runRemoteTestSuite.py, UT.py and config_info.py).
+2. Prior to running the command, ensure that you have connectivity to the proxy servers specified in the common_config.txt.
+3. Run the command: python runRemoteTestSuite.py
+4. The output log files of the test run will be stored in <current directory>/stats/<RunTime>. The <RunTime> is in the format: <YYYY>-<MM>-<DD>-<HHmmss>
+5. The filename of the log files will be in the format: UT<UT Id>_<TestCaseType>_<TestTimeStamp>_<UT/TestServer>.txt.
+   The UT Id is as specified in the UTlist.csv. The TestCaseType is as specified for the test in test_suites.json. The TestTimeStamp is in the format: <<YYYY>-<mm>-<DD>-<HHmmss>.<SSSSSS>

@@ -1,0 +1,222 @@
+[
+  {
+	"testSuiteName": "TS_SIMUL_PING_UDP_IPERF",
+	"testCases" : [{
+		"testCaseType" : "PING_TO_SERVER_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780 -Q 0xa0",
+		"testCaseParameters_CNX" : "-l 1000 -v 160 -t"
+	},
+	{
+		"testCaseType" : "PING_TO_INTERNET",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780 -Q 0xa0 8.8.8.8",
+		"testCaseParameters_CNX" : "-l 1000 -v 160 -t 8.8.8.8"
+	},
+	{
+		"testCaseType" : "PING_TO_SERVER_MGMT",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780"
+	},
+	{
+		"testCaseType" : "PING_FROM_SERVER_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780"
+	},
+	{
+		"testCaseType" : "PING_FROM_SERVER_MGMT",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780"
+	},
+	{
+		"testCaseType" : "DOWNLINK_IPERF_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"offsetFromBasePort" : 0,
+		"testCaseParameters" : "-u -b 450K -i 2 -t 780 -l 1200 ",
+		"testCaseParameters_CNX" : "-u -b 450K -i 2 -t 780 -l 1200 -S 0xa0 "
+	},
+	{
+		"testCaseType" : "UPLINK_IPERF_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"offsetFromBasePort" : 1,
+		"testCaseParameters" : "-u -b 450K -i 2 -t 780 -l 1200 ",
+		"testCaseParameters_CNX" : "-u -b 450K -i 2 -t 780 -l 1200 -S 0xa0 "
+	},
+	{
+		"testCaseType" : "DOWNLINK_IPERF_MGMT",
+		"testStartOption" : "StartAfterPrevious",
+		"offsetFromBasePort" : 2,
+		"testCaseParameters" : "-u -b 450K -i 2 -t 300 -l 1200 "
+	},
+	{
+		"testCaseType" : "UPLINK_IPERF_MGMT",
+		"testStartOption" : "StartWithPrevious",
+		"offsetFromBasePort" : 3,
+		"testCaseParameters" : "-u -b 450K -i 2 -t 300 -l 1200 "
+	}
+	]
+  },
+  {
+	"testSuiteName": "TS_SIMUL_PING_TCP_IPERF",
+	"testCases" : [{
+		"testCaseType" : "PING_TO_SERVER_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780 -Q 0xa0",
+		"testCaseParameters_CNX" : "-l 1000 -v 160 -t"
+	},
+	{
+		"testCaseType" : "PING_TO_INTERNET",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780 -Q 0xa0 8.8.8.8",
+		"testCaseParameters_CNX" : "-l 1000 -v 160 -t 8.8.8.8"
+	},
+	{
+		"testCaseType" : "PING_TO_SERVER_MGMT",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780"
+	},
+	{
+		"testCaseType" : "PING_FROM_SERVER_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780"
+	},
+	{
+		"testCaseType" : "PING_FROM_SERVER_MGMT",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780"
+	},
+	{
+		"testCaseType" : "DOWNLINK_IPERF_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"offsetFromBasePort" : 0,
+		"testCaseParameters" : " -i 2 -t 780 -w 4M ",
+		"testCaseParameters_CNX" : "-i 2 -t 780 -w 4M -S 0xa0 "
+	},
+	{
+		"testCaseType" : "UPLINK_IPERF_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"offsetFromBasePort" : 1,
+		"testCaseParameters" : " -i 2 -t 780 -w 4M ",
+		"testCaseParameters_CNX" : "-i 2 -t 780 -w 4M -S 0xa0 "
+	},
+	{
+		"testCaseType" : "DOWNLINK_IPERF_MGMT",
+		"testStartOption" : "StartWithPrevious",
+		"offsetFromBasePort" : 2,
+		"testCaseParameters" : " -i 2 -t 780 -w 4M "
+	},
+	{
+		"testCaseType" : "UPLINK_IPERF_MGMT",
+		"testStartOption" : "StartWithPrevious",
+		"offsetFromBasePort" : 3,
+		"testCaseParameters" : " -i 2 -t 780 -w 4M "
+	}
+	]
+  },
+  {
+	"testSuiteName": "TS_SINGLE_TCP_IPERF",
+	"testCases" : [{
+		"testCaseType" : "PING_TO_SERVER_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780 -Q 0xa0",
+		"testCaseParameters_CNX" : "-l 1000 -v 160 -t"
+	},
+	{
+		"testCaseType" : "DOWNLINK_IPERF_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"offsetFromBasePort" : 0,
+		"testCaseParameters" : " -i 2 -t 780 -w 4M ",
+		"testCaseParameters_CNX" : "-i 2 -t 780 -w 4M -S 0xa0 "
+	},
+	{
+		"testCaseType" : "UPLINK_IPERF_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"offsetFromBasePort" : 1,
+		"testCaseParameters" : " -i 2 -t 780 -w 4M ",
+		"testCaseParameters_CNX" : "-i 2 -t 780 -w 4M -S 0xa0 "
+	}	
+	]
+  },  
+  {
+	"testSuiteName": "TS_UT_SINGLE_WAN_PING",
+	"testCases" : [{
+		"testCaseType" : "PING_FROM_SERVER_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780" 
+	},
+	{
+		"testCaseType" : "PING_TO_SERVER_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780 -Q 0xa0",
+		"testCaseParameters_CNX" : "-l 1000 -v 160 -t"
+	},
+	{
+		"testCaseType" : "DOWNLINK_IPERF_MGMT",
+		"testStartOption" : "StartWithPrevious",
+		"offsetFromBasePort" : 2,
+		"testCaseParameters" : " -i 2 -t 780 -w 4M "
+	}    
+	]
+  },    
+  {
+	"testSuiteName": "TS_SIMUL_PING_TCP_IPERF_SSM",
+	"testCases" : [{
+		"testCaseType" : "PING_TO_SERVER_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780 -Q 0xa0",
+		"testCaseParameters_CNX" : "-l 100 -v 160 -t"
+	},
+	{
+		"testCaseType" : "PING_TO_SERVER_MGMT",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 100 -w 780"
+	},
+	{
+		"testCaseType" : "PING_FROM_SERVER_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 100 -w 780"
+	},
+	{
+		"testCaseType" : "PING_FROM_SERVER_MGMT",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 100 -w 780"
+	},
+	{
+		"testCaseType" : "DOWNLINK_IPERF_MGMT",
+		"testStartOption" : "StartWithPrevious",
+		"offsetFromBasePort" : 2,
+		"testCaseParameters" : " -i 2 -t 780 -w 4M "
+	}
+	]
+  },
+  {
+	"testSuiteName": "TS_UT_MULT_WAN_PING",
+	"testCases" : [{
+		"testCaseType" : "PING_TO_SERVER_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780 -Q 0xa0",
+		"testCaseParameters_CNX" : "-l 1000 -v 160 -t"		
+	},
+	{
+		"testCaseType" : "PING_TO_INTERNET",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780 -Q 0xa0 8.8.8.8",
+		"testCaseParameters_CNX" : "-l 1000 -v 160 -t 8.8.8.8"
+	},
+	{
+		"testCaseType" : "PING_TO_SERVER_MGMT",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780"
+	},
+	{
+		"testCaseType" : "PING_FROM_SERVER_WAN",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780" 
+	},
+	{
+		"testCaseType" : "PING_FROM_SERVER_MGMT",
+		"testStartOption" : "StartWithPrevious",
+		"testCaseParameters" : "-s 1000 -w 780"
+   	}]	
+  }  
+]
