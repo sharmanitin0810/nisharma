@@ -1,0 +1,91 @@
+*****************************REST API COMMANDS Script User Manual**********************************************
+
+Purpose : The Purpose of this Script is to execute REST API commands for below mentioned operations  :
+
+                        (a) GET Operation (b) PUT Operation 
+
+Preconditions and Requirements:
+
+       (i)The Script should be run on CentOS Linux OS system/server having python 2.7 or above installed.
+       (ii)Possibly all python libraries should also be installed on the system.
+       (iii)User should also have the root permissions is a plus.
+       (iv) Should be run from a machine from where EMS is reachable.
+       (v) REST Server should be running on EMS in order to execute the commands successfully.
+
+Working : The Script is completely based on the options selected by user for executing GET or PUT operations on GN Components using REST API.
+
+       (a)Firstly Place the provided script named as “restApiCmds.py” on any specific path on the system.
+       (b)Change the permissions of the script by using "chmod +x" command.
+       (c)Create a directory named as "logs" on the same path where script is kept using "mkdir logs" command.
+       (c)Run the script as: python restApiCmds.py or if required run as "sudo python restApiCmds.py" (if you are getting "Permission denied" error)
+       (d)Upon running the script, Select the operation you want to execute from below menu as :
+
+		
+		------------------------------
+		SELECT COMMAND OPTION
+		------------------------------
+		1. GET
+		2. PUT
+		------------------------------
+		Enter your choice [1 or 2] :
+
+       (e) Press 1 for "GET" Operation - GET operation is for executing below mentioned Commands :
+
+		Select GET Command ...
+		------------------------------
+		1. Get list of GN Components 		
+		2. Get list of SAP Components
+		3. Get list of POP Components
+		4. Get list of SAC Components
+		5. Get list of GNOC configuration files
+		6. Get list of configuration database
+		7. Get list of active alarms
+		8. Get list of status of all alarms
+		------------------------------
+		Enter your choice [1-8] :
+
+
+	(f) Press 2 for "PUT" Operation - PUT operation is for executing below mentioned Commands :
+
+		Select PUT Command ...
+		------------------------------
+		1. Change state of GN Components
+		2. GN Component Control
+		3. Suppress alarm
+		4. Backup database
+		5. Control GN components
+		------------------------------
+		Enter your choice [1-5] :
+
+	(g) Select the PUT Command based on the User Input Choice from 1 to 5.
+	(h) Upon selecting a choice user have to provide some more information which is required to run command on GN Components Successfully.
+	(i) Refer a Example below , if user wants to selects choice "1 - Change state of GN Components" :
+ 
+
+		(i) Upon selecting choice as "1" user is aksed for Component :
+			 
+			You want to change state of ...
+			1. SAP
+			2. GN Component
+			Enter your choice [1-2] :
+
+
+		(ii) Press "1" for SAP and "2" for GN Component.
+		(iii) if user Press "2" then again user is asked for Desired state   :
+	
+			Select desired state...
+			------------------------------
+			1. INSERVICE
+			2. OUT OF SERVICE
+			3. MAINTENANCE
+			Enter your choice [1-3] :
+  
+		(iv) Press "1" for INSERVICE , "2" for OUT OF SERVICE and "3" for MAINTENANCE
+		(v) If user Press "2" then again asked for Component Name :
+
+			Enter component name:
+
+		(vi) Enter the Component Name and Press Enter in order to chnage the Desired State of the Selected Component.
+
+	(j) So using this script you can execute commands on GN components as described one above.
+

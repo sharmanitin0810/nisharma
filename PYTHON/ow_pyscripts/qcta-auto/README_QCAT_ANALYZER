@@ -1,0 +1,52 @@
+QCAT log Merging and Analyzer exporting Framework
+-------------------------------------------------------------------
+
+This Script Merges all Logs in a specified folder and Export all analyzers in to ouput Folder.
+
+This package having Two perl scripts and one win32 to invoke those perl scripts.
+
+1) MergeFiles.pl --:  This Script will merges all the QCAT logs(.isf and .dlf files) into one file named as "MergedFile.isf". This script should be place in a folder where we 
+                      have multiple QCAT logs to be Merged in to a single log file.
+					  
+2) ExportTextAndExcel.pl ---: This script will use MergedFile.isf and Export Analyzers into specified path.
+                              Following path is updated appropriately in script -:
+							  
+							  my $LOG_FILE      = "C:\\Users\\Field QXDM-PC\\Desktop\\test\\input-log\\MergedFile.isf";
+                              my $OUTPUT_PATH   = "C:\\Users\\Field QXDM-PC\\Desktop\\test\\input-log\\output";
+
+
+3)qcat-Analyzer.bat  ---:  This is bat script which invokes above  perl scripts first this script invoke MergeFiles.pl which merges all files in specified folder into
+                           MergedFile.isf, then it invokes ExportTextAndExcel.pl script which exporting all Analyzers.
+
+Sample File are -:
+
+@echo off
+echo Merging QXDM Log files 
+cd input-log
+perl "C:\Users\Field QXDM-PC\Desktop\test\input-log\MergeFiles.pl"
+echo Press enter to generate Analyzers from Mergedfile
+pause
+perl "C:\Users\Field QXDM-PC\Desktop\test\ExportTextAndExcel.pl"
+echo All Analyzers are Exported Successfully
+pause
+
+NOte -:Paths should be updated as required to invoke scripts.
+
+Installation Instructions:
+-------------------------
+
+The script is written in perl and win32, The script has been tested under the Windows environment. It may need some tweeks if has to be run under Linux environment.
+
+Dependicies--:
+1) QCAT Application is Installed in PC.
+2) MS office/Excel is Installed in PC.(If not CSV files are not generated will get only txt files)
+3) Perl is installed in PC.
+4) PC/Server should be Windows.
+
+
+Run Instructions:
+----------------
+1). Ensure that the MergeFiles.pl perl script are placed in folder where we have all QCAT los to be merged into one File.
+2). Ensure that  $LOG_FILE  and $OUTPUT_PATH variables are updated with correct path.
+3). Ensure that qcat-Analyzer.bat is updated with correct path to run scripts.
+4). run qcat-Analyzer.bat  it will export analyzers from multiple Qcat logs file(MergeFiles.isf).

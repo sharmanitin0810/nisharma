@@ -1,0 +1,42 @@
+*****************************GN Current Alarm Monitoring Script User Manual**********************************************
+
+Purpose : The Purpose of this Script is to Retrieve All Current Alarms of Ground Network (GN) based on user Requirement having severity as follows :
+        
+						(a)Critical (b) Major  (c) Minor 
+
+Preconditions and Requirements:
+
+       (i)The Script should be run on CentOS Linux OS system/server having python 2.7 or above installed.
+       (ii)Possibly all python libraries should also be installed on the system.
+       (iii)User should also have the root permissions is a plus.
+      
+Working : The Script is completely based on the options selected by the user for  retrieving alarms of GN.
+
+       (a)Firstly Place the provided script named as “GN_ALARM_ANALYZER.py” on any specific path on the system.
+       (b)Change the permissions of the script by using "chmod +x" command.
+       (c)Run the script as: python GN_ALARM_ANALYZER.py. 
+       (d)Upon running the script, a user menu will display as :
+
+          Press  1-----> to get the current alarm status
+          Press 2 -----> Exit
+          Your choice:
+
+
+       (e) For retrieving the current alarms Press 1 and follow the steps displayed :
+
+          Press 1 ---->To get All current Alarms
+          Press 2---->To get All Critical Alarms
+          Press 3---->To get All Major Alarms
+          Press 4---->To get All Minor alarms
+          Press 5---->Exit
+          Your Choice :
+
+       (f) As shown select the appropriate option to get all alarms and alarms based on severity.
+       (g) For Eg : If user want to get Minor Alarms so press 4 followed by  entering respective EMS IP adrress 
+       (h) After entering the IP address of EMS, alarms are retrieved and saved in a “.csv” file .
+       (i) File Path and name having GN Id with date-time of generation is shown to user.
+       (j) You can open the file on the system or in Excel in order to analyze the alarms.
+       (k) You can also check the logs in "gn_logs" directories created .
+
+
+**************************************************************************************************************************

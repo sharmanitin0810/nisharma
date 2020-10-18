@@ -1,0 +1,244 @@
+ALARM-ID,ALARM-NAME,ALARM-SEVERITY,ALARM-TIME-STAMP,REPORTING-COMP-NAME,FAULTY-COMPONENT,ENTITY-ID
+34004,NTP Sync Failure,major,2020-10-14T19:13:13Z,spmL.sap02.owgn126,spmL.sap02.owgn126,RBN_SPM3_CP_COMPONENT
+34004,NTP Sync Failure,major,2020-10-14T19:12:47Z,spmR.sap01.owgn126,spmR.sap01.owgn126,RBN_SPM3_CP_COMPONENT
+34004,NTP Sync Failure,major,2020-10-14T19:12:26Z,spmL.sap01.owgn126,spmL.sap01.owgn126,RBN_SPM3_CP_COMPONENT
+34004,NTP Sync Failure,major,2020-10-14T19:11:06Z,spmR.sap02.owgn126,spmR.sap02.owgn126,RBN_SPM3_CP_COMPONENT
+32506,Equipment Recovered,informational,2020-10-14T19:07:15Z,rms001.snp.owgn126,axp001.snp.owgn126,2
+32506,Equipment Recovered,informational,2020-10-14T19:07:15Z,rms001.snp.owgn126,axp002.snp.owgn126,2
+30005,SRSF Data Unavailable,major,2020-10-14T09:46:01Z,pls001.snp.owgn126,pls001.snp.owgn126,GNID:126
+27006,SRSF Data Expired,critical,2020-10-14T09:46:00Z,ems001.snp.owgn126,GNOC,SRSF:126
+32008,Missing SRSF Configuration,critical,2020-10-14T09:46:00Z,rms001.snp.owgn126,rms001.snp.owgn126,0
+32008,Missing SRSF Configuration,critical,2020-10-14T09:46:00Z,rms002.snp.owgn126,rms002.snp.owgn126,0
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:57Z,ems001.snp.owgn126,GNOC,SADF:Sat-00499
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:57Z,ems001.snp.owgn126,GNOC,SADF:Sat-00497
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:57Z,ems001.snp.owgn126,GNOC,SADF:Sat-00496
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:57Z,ems001.snp.owgn126,GNOC,SADF:Sat-00498
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:57Z,ems001.snp.owgn126,GNOC,SADF:Sat-00495
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:56Z,ems001.snp.owgn126,GNOC,SADF:Sat-00494
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:56Z,ems001.snp.owgn126,GNOC,SADF:Sat-00493
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:56Z,ems001.snp.owgn126,GNOC,SADF:Sat-00492
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:56Z,ems001.snp.owgn126,GNOC,SADF:Sat-00491
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:30Z,ems001.snp.owgn126,GNOC,SADF:Sat-00343
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:29Z,ems001.snp.owgn126,GNOC,SADF:Sat-00342
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:29Z,ems001.snp.owgn126,GNOC,SADF:Sat-00341
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:29Z,ems001.snp.owgn126,GNOC,SADF:Sat-00340
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:29Z,ems001.snp.owgn126,GNOC,SADF:Sat-00419
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:28Z,ems001.snp.owgn126,GNOC,SADF:Sat-00429
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:28Z,ems001.snp.owgn126,GNOC,SADF:Sat-00428
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:28Z,ems001.snp.owgn126,GNOC,SADF:Sat-00427
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:28Z,ems001.snp.owgn126,GNOC,SADF:Sat-00426
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:28Z,ems001.snp.owgn126,GNOC,SADF:Sat-00425
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:28Z,ems001.snp.owgn126,GNOC,SADF:Sat-00424
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:28Z,ems001.snp.owgn126,GNOC,SADF:Sat-00423
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:28Z,ems001.snp.owgn126,GNOC,SADF:Sat-00422
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:28Z,ems001.snp.owgn126,GNOC,SADF:Sat-00421
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:27Z,ems001.snp.owgn126,GNOC,SADF:Sat-00420
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:27Z,ems001.snp.owgn126,GNOC,SADF:Sat-00439
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:27Z,ems001.snp.owgn126,GNOC,SADF:Sat-00438
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:21Z,ems001.snp.owgn126,GNOC,SADF:Sat-00437
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:21Z,ems001.snp.owgn126,GNOC,SADF:Sat-00436
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:21Z,ems001.snp.owgn126,GNOC,SADF:Sat-00435
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:21Z,ems001.snp.owgn126,GNOC,SADF:Sat-00434
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:21Z,ems001.snp.owgn126,GNOC,SADF:Sat-00433
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:19Z,ems001.snp.owgn126,GNOC,SADF:Sat-00432
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:19Z,ems001.snp.owgn126,GNOC,SADF:Sat-00431
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:19Z,ems001.snp.owgn126,GNOC,SADF:Sat-00430
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:16Z,ems001.snp.owgn126,GNOC,SADF:Sat-00441
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:15Z,ems001.snp.owgn126,GNOC,SADF:Sat-00440
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:14Z,ems001.snp.owgn126,GNOC,SADF:Sat-00399
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:14Z,ems001.snp.owgn126,GNOC,SADF:Sat-00398
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:13Z,ems001.snp.owgn126,GNOC,SADF:Sat-00397
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:13Z,ems001.snp.owgn126,GNOC,SADF:Sat-00394
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:13Z,ems001.snp.owgn126,GNOC,SADF:Sat-00395
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:13Z,ems001.snp.owgn126,GNOC,SADF:Sat-00396
+27007,GNOC File Validation Failed,major,2020-10-14T07:38:12Z,ems001.snp.owgn126,GNOC,SADF:Sat-00393
+27007,GNOC File Validation Failed,major,2020-10-14T07:37:39Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00499
+27007,GNOC File Validation Failed,major,2020-10-14T07:37:39Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00498
+27007,GNOC File Validation Failed,major,2020-10-14T07:37:39Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00497
+27007,GNOC File Validation Failed,major,2020-10-14T07:37:39Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00496
+27007,GNOC File Validation Failed,major,2020-10-14T07:37:39Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00495
+27007,GNOC File Validation Failed,major,2020-10-14T07:37:39Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00494
+27007,GNOC File Validation Failed,major,2020-10-14T07:37:39Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00493
+27007,GNOC File Validation Failed,major,2020-10-14T07:37:39Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00492
+27007,GNOC File Validation Failed,major,2020-10-14T07:37:38Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00491
+27007,GNOC File Validation Failed,major,2020-10-14T07:37:15Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00343
+27007,GNOC File Validation Failed,major,2020-10-14T07:37:14Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00342
+27007,GNOC File Validation Failed,major,2020-10-14T07:37:14Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00341
+27007,GNOC File Validation Failed,major,2020-10-14T07:37:14Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00340
+27007,GNOC File Validation Failed,major,2020-10-14T07:37:11Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00419
+27007,GNOC File Validation Failed,major,2020-10-14T07:37:10Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00429
+27007,GNOC File Validation Failed,major,2020-10-14T07:37:10Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00428
+27007,GNOC File Validation Failed,major,2020-10-14T07:37:10Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00427
+27007,GNOC File Validation Failed,major,2020-10-14T07:37:10Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00426
+27007,GNOC File Validation Failed,major,2020-10-14T07:37:10Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00425
+27007,GNOC File Validation Failed,major,2020-10-14T07:37:10Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00424
+27007,GNOC File Validation Failed,major,2020-10-14T07:37:10Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00423
+27007,GNOC File Validation Failed,major,2020-10-14T07:37:09Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00422
+27007,GNOC File Validation Failed,major,2020-10-14T07:37:09Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00421
+27007,GNOC File Validation Failed,major,2020-10-14T07:37:09Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00420
+27007,GNOC File Validation Failed,major,2020-10-14T07:37:09Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00439
+27007,GNOC File Validation Failed,major,2020-10-14T07:37:09Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00438
+27007,GNOC File Validation Failed,major,2020-10-14T07:36:52Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00437
+27007,GNOC File Validation Failed,major,2020-10-14T07:36:52Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00436
+27007,GNOC File Validation Failed,major,2020-10-14T07:36:52Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00435
+27007,GNOC File Validation Failed,major,2020-10-14T07:36:52Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00434
+27007,GNOC File Validation Failed,major,2020-10-14T07:36:52Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00433
+27007,GNOC File Validation Failed,major,2020-10-14T07:36:52Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00432
+27007,GNOC File Validation Failed,major,2020-10-14T07:36:51Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00431
+27007,GNOC File Validation Failed,major,2020-10-14T07:36:51Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00430
+27007,GNOC File Validation Failed,major,2020-10-14T07:36:49Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00440
+27007,GNOC File Validation Failed,major,2020-10-14T07:36:49Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00441
+27007,GNOC File Validation Failed,major,2020-10-14T07:36:49Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00398
+27007,GNOC File Validation Failed,major,2020-10-14T07:36:49Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00399
+27007,GNOC File Validation Failed,major,2020-10-14T07:36:49Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00397
+27007,GNOC File Validation Failed,major,2020-10-14T07:36:49Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00396
+27007,GNOC File Validation Failed,major,2020-10-14T07:36:49Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00395
+27007,GNOC File Validation Failed,major,2020-10-14T07:36:49Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00394
+27007,GNOC File Validation Failed,major,2020-10-14T07:36:48Z,ems001.snp.owgn126,GNOC,SEDF:Sat-00393
+22002,Invalid S1 Configuration,major,2020-10-08T17:17:29Z,axp001.snp.owgn126,axp001.snp.owgn126,8257665
+34003,Component Failed,minor,2020-10-07T21:10:02Z,rms.snp.owgn126,dsmL.sap01.owgn126,RBN_DSM3_CP_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:05Z,rms.snp.owgn126,dsm1L.sap02.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:05Z,rms.snp.owgn126,bucampL.sap02.owgn126,BUC_AMP_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:05Z,rms.snp.owgn126,dsm2L.sap02.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:05Z,rms.snp.owgn126,dsm3L.sap02.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:05Z,rms.snp.owgn126,dsm4L.sap02.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:05Z,rms.snp.owgn126,dsm5L.sap02.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:05Z,rms.snp.owgn126,rcmL.sap02.owgn126,RCU_RCM_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:05Z,rms.snp.owgn126,dsm6L.sap02.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:05Z,rms.snp.owgn126,dsm7L.sap02.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:05Z,rms.snp.owgn126,dsm8L.sap02.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:05Z,rms.snp.owgn126,spm1L.sap02.owgn126,RBN_SPM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:05Z,rms.snp.owgn126,dsmL.sap02.owgn126,RBN_DSM3_CP_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:05Z,rms.snp.owgn126,spm4L.sap02.owgn126,RBN_SPM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:05Z,rms.snp.owgn126,spm2L.sap02.owgn126,RBN_SPM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:05Z,rms.snp.owgn126,spm3L.sap02.owgn126,RBN_SPM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:01Z,rms.snp.owgn126,dsmR.sap02.owgn126,RBN_DSM3_CP_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:01Z,rms.snp.owgn126,spm1R.sap02.owgn126,RBN_SPM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:01Z,rms.snp.owgn126,dsm2R.sap02.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:01Z,rms.snp.owgn126,dsm1R.sap02.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:01Z,rms.snp.owgn126,spm3R.sap02.owgn126,RBN_SPM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:01Z,rms.snp.owgn126,spm2R.sap02.owgn126,RBN_SPM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:01Z,rms.snp.owgn126,spm4R.sap02.owgn126,RBN_SPM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:01Z,rms.snp.owgn126,rcmR.sap02.owgn126,RCU_RCM_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:01Z,rms.snp.owgn126,bucampR.sap02.owgn126,BUC_AMP_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:01Z,rms.snp.owgn126,dsm6R.sap02.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:01Z,rms.snp.owgn126,dsm5R.sap02.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:01Z,rms.snp.owgn126,dsm4R.sap02.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:01Z,rms.snp.owgn126,dsm3R.sap02.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:01Z,rms.snp.owgn126,dsm8R.sap02.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:05:01Z,rms.snp.owgn126,dsm7R.sap02.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:04:30Z,rms.snp.owgn126,dsm2L.sap01.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:04:30Z,rms.snp.owgn126,dsm3L.sap01.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:04:30Z,rms.snp.owgn126,dsm4L.sap01.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:04:30Z,rms.snp.owgn126,dsm5L.sap01.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:04:30Z,rms.snp.owgn126,bucampL.sap01.owgn126,BUC_AMP_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:04:30Z,rms.snp.owgn126,dsm1L.sap01.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:04:30Z,rms.snp.owgn126,dsm6L.sap01.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:04:30Z,rms.snp.owgn126,dsm7L.sap01.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:04:30Z,rms.snp.owgn126,dsm8L.sap01.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:04:30Z,rms.snp.owgn126,spm1L.sap01.owgn126,RBN_SPM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:04:30Z,rms.snp.owgn126,spm2L.sap01.owgn126,RBN_SPM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:04:30Z,rms.snp.owgn126,rcmL.sap01.owgn126,RCU_RCM_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:04:30Z,rms.snp.owgn126,spm3L.sap01.owgn126,RBN_SPM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:04:30Z,rms.snp.owgn126,spm4L.sap01.owgn126,RBN_SPM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:04:30Z,rms.snp.owgn126,dsmR.sap01.owgn126,RBN_DSM3_CP_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:04:30Z,rms.snp.owgn126,spm2R.sap01.owgn126,RBN_SPM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:04:30Z,rms.snp.owgn126,dsm3R.sap01.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:04:30Z,rms.snp.owgn126,spm1R.sap01.owgn126,RBN_SPM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:04:30Z,rms.snp.owgn126,dsm2R.sap01.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:04:30Z,rms.snp.owgn126,spm4R.sap01.owgn126,RBN_SPM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:04:30Z,rms.snp.owgn126,dsm1R.sap01.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:04:30Z,rms.snp.owgn126,spm3R.sap01.owgn126,RBN_SPM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:04:30Z,rms.snp.owgn126,rcmR.sap01.owgn126,RCU_RCM_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:04:30Z,rms.snp.owgn126,bucampR.sap01.owgn126,BUC_AMP_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:04:30Z,rms.snp.owgn126,dsm7R.sap01.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:04:30Z,rms.snp.owgn126,dsm6R.sap01.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:04:30Z,rms.snp.owgn126,dsm5R.sap01.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:04:30Z,rms.snp.owgn126,dsm4R.sap01.owgn126,RBN_DSM3_SOC_COMPONENT
+34003,Component Failed,minor,2020-10-07T21:04:30Z,rms.snp.owgn126,dsm8R.sap01.owgn126,RBN_DSM3_SOC_COMPONENT
+27009,File Mismatch,major,2020-10-07T18:27:30Z,ems001.snp.owgn126,blade03_1.chassis01.snp.owgn126,SOFTWARE:OW_EMS_9.2.6.tar.gz
+34003,Component Failed,minor,2020-10-01T13:56:28Z,ams002.snp.owgn126,ams001.snp.owgn126,AMS_COMPONENT
+21001,Contact Setup failed,major,2020-10-01T12:21:13Z,ams.snp.owgn126,ams002.snp.owgn126,Satellite ID:478
+21001,Contact Setup failed,major,2020-10-01T12:16:57Z,ams.snp.owgn126,ams002.snp.owgn126,Satellite ID:480
+21001,Contact Setup failed,major,2020-10-01T12:14:55Z,ams.snp.owgn126,ams002.snp.owgn126,Satellite ID:481
+27008,Connectivity Lost,major,2020-09-24T15:21:41Z,ems001.snp.owgn126,ntptru001.snp.owgn126,38
+27008,Connectivity Lost,major,2020-09-24T15:21:41Z,ems001.snp.owgn126,ntptru002.snp.owgn126,40
+27008,Connectivity Lost,major,2020-09-24T15:21:32Z,ems001.snp.owgn126,sacrack1pdu002A.snp.owgn126,10083
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,swt002.chassis02.snp.owgn126,578
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,swt002.chassis01.snp.owgn126,514
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,swt001.chassis02.snp.owgn126,577
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,shmca.chassis01.snp.owgn126,1820
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,shmca.chassis02.snp.owgn126,2012
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,sacrack1pdu001A.snp.owgn126,83
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm8R.sap04.owgn126,2042
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,rcmR.sap04.owgn126,2043
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm7R.sap04.owgn126,2041
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm6R.sap04.owgn126,2040
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm5R.sap04.owgn126,2039
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm4R.sap04.owgn126,2038
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm3R.sap04.owgn126,2037
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm2R.sap04.owgn126,2036
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm1R.sap04.owgn126,2035
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsmR.sap04.owgn126,2034
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,spm4R.sap04.owgn126,2032
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,spm2R.sap04.owgn126,2028
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,spm3R.sap04.owgn126,2030
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,spmR.sap04.owgn126,2025
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,spm1R.sap04.owgn126,2026
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm8L.sap04.owgn126,2010
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,rcmL.sap04.owgn126,2011
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm7L.sap04.owgn126,2009
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm6L.sap04.owgn126,2008
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm5L.sap04.owgn126,2007
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm4L.sap04.owgn126,2006
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm3L.sap04.owgn126,2005
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm2L.sap04.owgn126,2004
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm1L.sap04.owgn126,2003
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsmL.sap04.owgn126,2002
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,spm4L.sap04.owgn126,2000
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,spm3L.sap04.owgn126,1998
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,spm2L.sap04.owgn126,1996
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,spm1L.sap04.owgn126,1994
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,spmL.sap04.owgn126,1993
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,rcmR.sap03.owgn126,1979
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm8R.sap03.owgn126,1978
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm7R.sap03.owgn126,1977
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm6R.sap03.owgn126,1976
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm5R.sap03.owgn126,1975
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm4R.sap03.owgn126,1974
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm3R.sap03.owgn126,1973
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm2R.sap03.owgn126,1972
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm1R.sap03.owgn126,1971
+27009,File Mismatch,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,blade04_2.chassis01.snp.owgn126,SOFTWARE:OW_LDAP_9.1.6.tar.gz
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsmR.sap03.owgn126,1970
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,spm4R.sap03.owgn126,1968
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,spm3R.sap03.owgn126,1966
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,spm2R.sap03.owgn126,1964
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,spmR.sap03.owgn126,1961
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,spm1R.sap03.owgn126,1962
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,rcmL.sap03.owgn126,1947
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm8L.sap03.owgn126,1946
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm6L.sap03.owgn126,1944
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm7L.sap03.owgn126,1945
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm5L.sap03.owgn126,1943
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm4L.sap03.owgn126,1942
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm3L.sap03.owgn126,1941
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm2L.sap03.owgn126,1940
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsm1L.sap03.owgn126,1939
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,dsmL.sap03.owgn126,1938
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,spm4L.sap03.owgn126,1936
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,spm3L.sap03.owgn126,1934
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,spm1L.sap03.owgn126,1930
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,spm2L.sap03.owgn126,1932
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,spmL.sap03.owgn126,1929
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,acu.sap04.owgn126,57379
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,bucampR.sap04.owgn126,57378
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,bucampL.sap04.owgn126,57376
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,bucampR.sap03.owgn126,57373
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,acu.sap03.owgn126,57374
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,bucampL.sap03.owgn126,57371
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,ldap001.snp.owgn126,19
+27008,Connectivity Lost,major,2020-09-24T15:21:30Z,ems001.snp.owgn126,img002.snp.owgn126,12
+27008,Connectivity Lost,major,2020-09-24T15:21:23Z,ems001.snp.owgn126,ems001.snp.owgn126,22
+34010,High Memory Usage,minor,2020-09-24T15:21:13Z,blade03_2.chassis01.snp.owgn126,blade03_2.chassis01.snp.owgn126,520
+30005,SRSF Data Unavailable,major,2020-06-25T21:37:26Z,pls001.snp.owgn126,pls001.snp.owgn126,GNID:127

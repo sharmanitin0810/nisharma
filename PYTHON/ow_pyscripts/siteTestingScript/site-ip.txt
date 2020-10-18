@@ -1,0 +1,2 @@
+10.xx.xx.10 IMG-SNP
+10.xx.xx.11 IMG-POP-1

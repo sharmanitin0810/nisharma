@@ -1,0 +1,31 @@
+*****************************AUTO COMMAND Script User Manual**********************************************
+
+Purpose : The Purpose of this Script is to execute same command on multiple reachable GN nodes simultaneusly.
+ 
+Preconditions and Requirements:
+
+       (i)The Script should be run on CentOS Linux OS system/server having python 2.7 or above installed.
+       (ii)Possibly all python libraries should also be installed on the system.
+       (iii)User should also have the root permissions is a plus.
+       (iv) Should be run from a machine preferably EMS from every GN compoenent is reachabe.
+
+Working : The Script is completely based on the configuration done by user for executing the same on different-different nodes.
+
+       (a)Firstly Place the provided script folder named as "AUTO_COMMAND" on any specific path on the system.
+       (b)The folder Consiste of 3 files as described below : 
+		
+		(i) push-cmd.py Script - This is the python script which we should run.
+		(ii) ip-list.txt - This text file will consists the ip addresses of nodes. (Each Ip address in seperate row)
+		(iii) cmd-list.txt - This text file will consists the command which user wants to execute (Each Command in seperate row)
+	
+       (c)Change the permissions of the script by using "chmod +x" command.
+       (d)Run the script as: python push-cmd.py or if required run as "sudo python push-cmd.py" (if you are getting "Permission denied" error)
+       (e) Upon running script , the script will execute the commands listed in "cmd-list.txt" on the nodes listed in "ip-list.txt" one by one.
+ 
+
+Note : This script is written for nodes having username as "msat" and password as "oneweb123" , if credentials modification required then update the script by your choice for username and passwords.
+
+
+
+
+

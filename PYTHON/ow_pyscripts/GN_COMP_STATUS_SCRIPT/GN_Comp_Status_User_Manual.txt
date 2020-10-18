@@ -1,0 +1,41 @@
+************************************Component status Monitoring Script User Manual**********************************************
+
+Purpose : The Purpose of this Script is to get the component Status of the following:
+                        (a) SAP (b) SAC  (c) POP 
+
+Preconditions and Requirements:
+
+       (i)The Script should be run on CentOS Linux OS system/server having python 2.7 or above installed.
+       (ii)Possibly all python libraries should also be installed on the system.
+       (iii)User should also have the root permissions is a plus.
+
+Working: The Script is completely based on the detailed inputs from the  user for getting the desired and the current status of the components.
+       (a)Firstly place the provided script named as “GN_COMP_STATUS.py” on any specific path on the system.
+       (b)Change the permissions of the script by using "chmod +x" command.
+       (c)Run the script as: python “GN_COMP_STATUS.py” 
+       (d)Upon running the script, a user menu will display as :
+
+             Please Enter the IP Address of EMS (x.x.x.21) :
+
+	(User needs to enter the IP of the EMS for which he wishes to extract data)
+
+       (e) Upon entering the IP address of EMS user needs to select the type of GN components by choosing the suitable option.
+
+	###*** Select the GN Component Type ***###
+	Press 1 --->To Get SAP Components Status
+	Press 2 --->To Get SAC Components Status
+	Press 3 --->To Get POP Components Status
+	Press 4 --->To Exit
+
+
+       (f) For Eg : For Retrieving SAP Components Status Press 1. The data will be fetched and reflect over the screen.
+       (g)You can also verify the “json files” and “component logs” created on the same path in respective folders.
+
+Note : Two directories named as "comp_logs" and “json_files”is created , if possible do not remove it.
+
+
+
+**************************************************************************************************************************
+
+
+
