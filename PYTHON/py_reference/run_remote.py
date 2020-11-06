@@ -25,7 +25,7 @@ def run_remote_command():
                    password='oneweb123', sock=jump_channel)
     stdin, stdout, stderr = target.exec_command(rcmd)
     output = stdout.read().decode('ascii').strip("\n")
-    print ("Output is :",output)
+    print ("Output for target host : " + log_server + " "" is :",output)
     target.close()
     ssh_client.close()
 
