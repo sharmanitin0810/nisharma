@@ -200,7 +200,7 @@ if __name__ == "__main__":
 
 	#Basic Configuration for Generating Logs
 
-        logFname = datetime.now().strftime('COMP_DETAILS_%d_%m_%Y:%H_%M.log')
+        logFname = datetime.now().strftime('COMP_DETAILS_%d_%m_%Y_%H_%M.log')
         logging.basicConfig(filename='comp_logs/%s' %(logFname),level=logging.DEBUG,format='%(asctime)s : %(message)s ')
         logger = logging.getLogger()
 	
